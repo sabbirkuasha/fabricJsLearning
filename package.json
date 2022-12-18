@@ -1,0 +1,27 @@
+{
+  "name": "fabricjslearning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./dist/main_tailwind.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./dist/main_tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabbirkuasha/fabricJsLearning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sabbirkuasha/fabricJsLearning/issues"
+  },
+  "homepage": "https://github.com/sabbirkuasha/fabricJsLearning#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "daisyui": "^2.45.0"
+  }
+}
