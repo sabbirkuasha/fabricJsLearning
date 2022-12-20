@@ -52,14 +52,18 @@ function activateAddingLine() {
   canvas.on("mouse:up", endDrawingLine);
 
   canvas.selection = false;
+  canvas.hoverCursor = "auto";
 }
 
 function startAddingLine(o) {
   mouseDown = true;
+
   let pointer = canvas.getPointer(o.e);
   line = new fabric.Line([pointer.x, pointer.y, pointer.x, pointer.y], {
+    id: "addedLine",
     stroke: "red",
     strokeWidth: 3,
+    selectable: false,
   });
   canvas.add(line);
   canvas.requestRenderAll();
@@ -79,5 +83,25 @@ function startDrawingLine(o) {
   }
 }
 function endDrawingLine() {
+  line.setCoords();
   mouseDown = false;
+}
+
+let deactivateAddingBtn = document.getElementById("DeactivateAddLine");
+deactivateAddingBtn.addEventListener("click", deactivateAddingShape);
+
+function deactivateAddingShape() {
+  canvas.off("mouse:down", startAddingLine);
+  canvas.off("mouse:move", startDrawingLine);
+  canvas.off("mouse:up", endDrawingLine);
+
+  canvas.getObjects().forEach((o) => {
+    if (o.id === "addedLine") {
+      o.set({
+        selectable: true,
+      });
+    }
+  });
+
+  canvas.hoverCursor = "move";
 }
