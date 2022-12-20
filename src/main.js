@@ -43,16 +43,28 @@ let canvas = new fabric.Canvas("canvas", {
 let line;
 let mouseDown = false;
 let LineBtn = document.getElementById("AddLine");
+let addBtnClicked = false;
 
 LineBtn.addEventListener("click", activateAddingLine);
 
 function activateAddingLine() {
-  canvas.on("mouse:down", startAddingLine);
-  canvas.on("mouse:move", startDrawingLine);
-  canvas.on("mouse:up", endDrawingLine);
+  if (addBtnClicked === false) {
+    addBtnClicked = true;
 
-  canvas.selection = false;
-  canvas.hoverCursor = "auto";
+    canvas.on("mouse:down", startAddingLine);
+    canvas.on("mouse:move", startDrawingLine);
+    canvas.on("mouse:up", endDrawingLine);
+
+    canvas.selection = false;
+    canvas.hoverCursor = "auto";
+    canvas.getObjects().forEach((o) => {
+      if (o.id === "addedLine") {
+        o.set({
+          selectable: false,
+        });
+      }
+    });
+  }
 }
 
 function startAddingLine(o) {
@@ -104,4 +116,5 @@ function deactivateAddingShape() {
   });
 
   canvas.hoverCursor = "move";
+  addBtnClicked = false;
 }
