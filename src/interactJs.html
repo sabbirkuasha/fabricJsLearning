@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Interact Js</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../dist/main_tailwind.css" />
+  </head>
+  <body>
+    <div class="w-full p-5 ring-2">Hello</div>
+
+    <div
+      class="draggable w-1/4 ring-2 ring-purple-600 rounded p-5 touch-none select-none"
+    >
+      <div class="divider">Select User role</div>
+      <div class="w-full flex-row justify-center">
+        <select class="select select-secondary w-full max-w-xs">
+          <option disabled selected>Worker Type</option>
+          <option>Operator</option>
+          <option>Manager</option>
+        </select>
+      </div>
+    </div>
+
+    <div
+      class="draggable2 w-1/6 bg-purple-900 rounded p-5 touch-none select-none"
+    >
+      Draggable Element
+    </div>
+    <div
+      class="resize-drag w-1/6 rounded p-10 ring-2 ring-yellow-400 touch-none box-border"
+    >
+      Resize from any edge or corner
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="js/int.js" defer></script>
+  </body>
+</html>
